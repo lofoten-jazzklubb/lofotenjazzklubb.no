@@ -107,7 +107,19 @@ const jsonLd = {
   rel="alternate"
   type="application/rss+xml"
   title={SITE_TITLE}
-  href={new URL("rss.xml", Astro.site)}
+  href={new URL("rss/all.xml", Astro.site)}
+/>
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={`${SITE_TITLE} - Aktuelt`}
+  href={new URL("rss/blog.xml", Astro.site)}
+/>
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={`${SITE_TITLE} - Arrangementer`}
+  href={new URL("rss/events.xml", Astro.site)}
 />
 
 <Font cssVariable="--font-atkinson" preload />
