@@ -1,16 +1,12 @@
 ---
 import { SITE_TITLE } from "../consts";
-import AbstractLogo from "./AbstractLogo.astro";
 import HeaderLink from "./HeaderLink.astro";
 ---
 
 <header class="sticky top-0 z-10 bg-white px-4 py-4 md:px-16">
   <nav>
     <div class="flex items-center justify-between">
-      <div>
-        <AbstractLogo />
-        <span class="sr-only">{SITE_TITLE}</span>
-      </div>
+      <span class="sr-only">{SITE_TITLE}</span>
       <div
         class="flex items-center justify-center gap-2 md:justify-end md:gap-6"
       >
