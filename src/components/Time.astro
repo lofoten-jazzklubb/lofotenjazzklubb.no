@@ -12,6 +12,6 @@ interface Props extends HTMLAttributes<"time"> {
 const { date, format = formatDateTime, class: className } = Astro.props;
 ---
 
-<time datetime={formatIso(date)} class={className}>
+<time datetime={formatIso(date)} class:list={[className, "align-baseline"]}>
   {format(date)}
 </time>

@@ -12,7 +12,7 @@ import Layout from "./Layout.astro";
 
 import "../styles/global.css";
 
-import { formatIso, formatWeekdayDateTime } from "../utils/date";
+import { formatDate, formatIso, formatWeekdayDateTime } from "../utils/date";
 
 type Props = CollectionEntry<"event">["data"];
 
@@ -61,21 +61,33 @@ const eventSchema = {
             src={heroImage}
             alt={title}
             loading="eager"
-            class="w-full"
           />
         )
       }
     </div>
-    <div class="space-y-4 px-4">
+    <div class="space-y-4">
       <h1><Typewriter text={title} /></h1>
       <p>{description}</p>
       <div class="grid grid-cols-[auto_1fr] items-center gap-3">
         <Icon name="circum:calendar-date" size={40} class="-translate-y-0.5" />
-        <span class="text-lg first-letter:uppercase md:text-xl"
-          ><Time date={startDate} format={formatWeekdayDateTime} /></span
+        <span
+          class="flex items-center text-lg first-letter:uppercase md:text-xl"
         >
+          <Time
+            date={startDate}
+            format={endDate ? formatDate : formatWeekdayDateTime}
+          />
+          {
+            endDate && (
+              <span>
+                -
+                <Time date={endDate} format={formatDate} />
+              </span>
+            )
+          }
+        </span>
         <Icon name="circum:location-on" size={40} class="-translate-y-0.5" />
-        <span class="text-lg md:text-xl">{venue}</span>
+        <span class="flex items-center text-lg md:text-xl">{venue}</span>
       </div>
       <Divider variant="small-gray" />
       <div class="space-y-1">
@@ -84,7 +96,7 @@ const eventSchema = {
       </div>
       <Divider variant="big-blue" />
     </div>
-    <div class="prose px-4">
+    <div class="prose">
       <slot />
     </div>
   </article>

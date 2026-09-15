@@ -10,17 +10,17 @@ const { label } = Astro.props;
 
 <details class="group/details">
   <summary
-    class="group/summary mb-4 flex w-fit cursor-pointer list-none flex-row items-center gap-2 px-4 text-2xl md:px-0"
+    class="group/summary mb-4 flex w-full cursor-pointer list-none flex-row items-center justify-between gap-2 text-2xl md:w-fit md:justify-start"
   >
     <span
-      class="border-b-4 border-transparent bg-blue-950 group-hover/summary:border-current"
+      class="border-b-4 border-transparent group-hover/summary:border-current"
     >
       {label}
     </span>
     <Icon
-      class="origin-center -translate-y-0.25 bg-blue-950 group-open/details:rotate-180 group-hover/summary:scale-110 group-hover/summary:not-group-open/details:rotate-6 group-hover/summary:group-open/details:rotate-174"
+      class="origin-center -translate-y-0.5 group-open/details:rotate-180 group-hover/summary:scale-110 group-hover/summary:not-group-open/details:rotate-6 group-hover/summary:group-open/details:rotate-174"
       name="stash:chevron-down"
-      size={36}
+      size={40}
     />
   </summary>
   <slot />
