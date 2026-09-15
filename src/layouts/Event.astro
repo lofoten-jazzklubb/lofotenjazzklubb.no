@@ -61,11 +61,12 @@ const eventSchema = {
             src={heroImage}
             alt={title}
             loading="eager"
+            class="w-full"
           />
         )
       }
     </div>
-    <div class="space-y-4">
+    <div class="space-y-4 px-4">
       <h1><Typewriter text={title} /></h1>
       <p>{description}</p>
       <div class="grid grid-cols-[auto_1fr] items-center gap-3">
@@ -83,7 +84,7 @@ const eventSchema = {
       </div>
       <Divider variant="big-blue" />
     </div>
-    <div class="prose">
+    <div class="prose px-4">
       <slot />
     </div>
   </article>

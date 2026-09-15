@@ -30,14 +30,18 @@ const upcomingEvents = futureEvents.slice(1);
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <div class="space-y-16 md:space-y-32">
-    <Image
-      loading="eager"
-      src={LogoImage}
-      alt={SITE_TITLE}
-      class="mt-4 w-full md:mt-16"
-    />
+    <div class="px-4">
+      <Image
+        loading="eager"
+        src={LogoImage}
+        alt={SITE_TITLE}
+        class="mt-4 w-full md:mt-16"
+      />
+    </div>
     <section class="space-y-8">
-      <h2 class="text-5xl md:text-8xl">Arrangementer</h2>
+      <div class="px-4">
+        <h2 class="text-5xl md:text-8xl">Arrangementer</h2>
+      </div>
 
       {
         nextEvent && (
@@ -49,7 +53,7 @@ const upcomingEvents = futureEvents.slice(1);
                 image={nextEvent.data.heroImage}
               >
                 <div slot="meta" class="flex flex-col md:flex-row md:gap-1">
-                  <div class="flex items-center justify-start space-x-1 bg-blue-500 px-2 py-2 text-white group-hover:text-white md:bg-transparent md:px-0 md:py-3 md:pr-2 md:text-black md:group-hover:bg-blue-500">
+                  <div class="flex items-center justify-start space-x-1 bg-blue-500 px-2 py-2 text-white group-hover:text-white md:bg-transparent md:px-0 md:py-3 md:pr-2 md:text-white md:group-hover:bg-blue-500">
                     <Icon
                       name="circum:calendar-date"
                       class="-translate-y-0.5"
@@ -74,7 +78,7 @@ const upcomingEvents = futureEvents.slice(1);
                       </span>
                     )}
                   </div>
-                  <div class="flex items-center justify-start space-x-1 bg-blue-400 px-2 py-2 text-white group-hover:text-white md:bg-transparent md:px-2 md:py-3 md:text-black md:group-hover:bg-blue-400">
+                  <div class="flex items-center justify-start space-x-1 bg-blue-400 px-2 py-2 text-white group-hover:text-white md:bg-transparent md:px-2 md:py-3 md:text-white md:group-hover:bg-blue-400">
                     <Icon
                       name="circum:location-on"
                       size={32}
@@ -83,7 +87,7 @@ const upcomingEvents = futureEvents.slice(1);
                     <span>{nextEvent.data.venue}</span>
                   </div>
                 </div>
-                <p>{nextEvent.data.description}</p>
+                <p class="px-4 md:px-0">{nextEvent.data.description}</p>
               </Card>
             </ul>
             {upcomingEvents.length > 0 && (
@@ -104,7 +108,7 @@ const upcomingEvents = futureEvents.slice(1);
                   image={event.data.heroImage}
                 >
                   <div slot="meta" class="flex flex-col md:flex-row md:gap-1">
-                    <div class="flex items-center justify-start space-x-1 bg-blue-500 px-2 py-2 text-white group-hover:text-white md:bg-transparent md:px-0 md:py-3 md:pr-2 md:text-black md:group-hover:bg-blue-500">
+                    <div class="flex items-center justify-start space-x-1 bg-blue-500 px-2 py-2 text-white group-hover:text-white md:bg-transparent md:px-0 md:py-3 md:pr-2 md:text-white md:group-hover:bg-blue-500">
                       <Icon
                         name="circum:calendar-date"
                         class="-translate-y-0.5"
@@ -126,7 +130,7 @@ const upcomingEvents = futureEvents.slice(1);
                         </span>
                       )}
                     </div>
-                    <div class="flex items-center justify-start space-x-1 bg-blue-400 px-2 py-2 text-white group-hover:text-white md:bg-transparent md:px-2 md:py-3 md:text-black md:group-hover:bg-blue-400">
+                    <div class="flex items-center justify-start space-x-1 bg-blue-400 px-2 py-2 text-white group-hover:text-white md:bg-transparent md:px-2 md:py-3 md:text-white md:group-hover:bg-blue-400">
                       <Icon
                         name="circum:location-on"
                         size={32}
@@ -135,7 +139,7 @@ const upcomingEvents = futureEvents.slice(1);
                       <span>{event.data.venue}</span>
                     </div>
                   </div>
-                  <p>{event.data.description}</p>
+                  <p class="px-4 md:px-0">{event.data.description}</p>
                 </Card>
                 {index !== upcomingEvents.length - 1 && (
                   <Divider class="mb-5 md:hidden" variant="big-blue" />
@@ -163,7 +167,7 @@ const upcomingEvents = futureEvents.slice(1);
                         slot="meta"
                         class="flex flex-col md:flex-row md:gap-1"
                       >
-                        <div class="flex items-center justify-start space-x-1 bg-blue-500 px-2 py-2 text-white group-hover:text-white md:bg-transparent md:px-0 md:py-3 md:pr-2 md:text-black md:group-hover:bg-blue-500">
+                        <div class="flex items-center justify-start space-x-1 bg-blue-500 px-2 py-2 text-white group-hover:text-white md:bg-transparent md:px-0 md:py-3 md:pr-2 md:text-white md:group-hover:bg-blue-500">
                           <Icon
                             name="circum:calendar-date"
                             class="-translate-y-0.5"
@@ -188,7 +192,7 @@ const upcomingEvents = futureEvents.slice(1);
                             </span>
                           )}
                         </div>
-                        <div class="flex items-center justify-start space-x-1 bg-blue-400 px-2 py-2 text-white group-hover:text-white md:bg-transparent md:px-2 md:py-3 md:text-black md:group-hover:bg-blue-400">
+                        <div class="flex items-center justify-start space-x-1 bg-blue-400 px-2 py-2 text-white group-hover:text-white md:bg-transparent md:px-2 md:py-3 md:text-white md:group-hover:bg-blue-400">
                           <Icon
                             name="circum:location-on"
                             size={32}
@@ -197,7 +201,7 @@ const upcomingEvents = futureEvents.slice(1);
                           <span>{event.data.venue}</span>
                         </div>
                       </div>
-                      <p>{event.data.description}</p>
+                      <p class="px-4 md:px-0">{event.data.description}</p>
                     </Card>
                     {index !== pastEvents.length - 1 && (
                       <Divider class="mb-5 md:hidden" variant="big-blue" />

@@ -9,13 +9,13 @@ interface Props {
 const { pubDate, updatedDate } = Astro.props;
 ---
 
-<div class="flex flex-col gap-0.5 text-gray-700">
+<div class="flex flex-col gap-0.5 text-gray-300">
   <span class="text-xs">Publisert: <Time date={pubDate} /></span>
   {
     updatedDate &&
       Math.floor(pubDate.getTime() / 60000) !==
         Math.floor(updatedDate.getTime() / 60000) && (
-        <span class="text-2xs text-gray-500">
+        <span class="text-2xs text-gray-400">
           (oppdatert: <Time date={updatedDate} />)
         </span>
       )

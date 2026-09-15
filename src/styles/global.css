@@ -15,6 +15,23 @@
   --tw-prose-links: currentColor;
   --tw-prose-bullets: currentColor;
   --tw-prose-quote-borders: var(--color-blue-200);
+  /* Dark mode text colors */
+  --tw-prose-body: #fff;
+  --tw-prose-headings: #fff;
+  --tw-prose-lead: #fff;
+  --tw-prose-bold: #fff;
+  --tw-prose-counters: #fff;
+  --tw-prose-td: #fff;
+  --tw-prose-th: #fff;
+  --tw-prose-captions: #fff;
+  --tw-prose-kbd: #fff;
+  --tw-prose-code: #fff;
+  --tw-prose-pre-code: #fff;
+  --tw-prose-pre-bg: var(--color-blue-900);
+  --tw-prose-hr: var(--color-blue-700);
+  --tw-prose-quotes: #fff;
+  --tw-prose-quote-borders: var(--color-blue-400);
+  --tw-prose-blockquote: #fff;
 }
 
 /* Hand heading styling back to the site's own scale.

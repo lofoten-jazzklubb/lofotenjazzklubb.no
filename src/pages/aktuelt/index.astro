@@ -17,7 +17,9 @@ const posts = (await getCollection("blog")).sort(
 
 <Layout title="Aktuelt" description={SITE_DESCRIPTION}>
   <section class="space-y-8">
-    <h2 class="text-5xl md:text-8xl">Aktuelt</h2>
+    <div class="px-4">
+      <h2 class="text-5xl md:text-8xl">Aktuelt</h2>
+    </div>
     <ul class="grid grid-cols-1 gap-4">
       {
         posts.map((post) => (
@@ -27,7 +29,7 @@ const posts = (await getCollection("blog")).sort(
             image={post.data.heroImage}
           >
             <div slot="meta" class="flex">
-              <div class="flex items-center justify-start gap-1 py-2 pr-2 group-hover:bg-blue-500 group-hover:text-white">
+              <div class="flex items-center justify-start gap-1 bg-blue-500 py-2 pr-2 text-white group-hover:text-white md:bg-transparent md:py-3 md:pr-2 md:text-white md:group-hover:bg-blue-500">
                 <Icon
                   name="circum:calendar-date"
                   size={32}
@@ -38,7 +40,7 @@ const posts = (await getCollection("blog")).sort(
               </div>
             </div>
 
-            <p>{post.data.description}</p>
+            <p class="px-4 md:px-0">{post.data.description}</p>
           </Card>
         ))
       }
