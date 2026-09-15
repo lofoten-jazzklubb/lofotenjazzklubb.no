@@ -23,17 +23,20 @@ interface Props {
   href: string;
   title: string;
   image?: ImageMetadata;
+  className?: string;
 }
 
-const { href, title, image } = Astro.props;
+const { href, title, image, className } = Astro.props;
 ---
 
-<li>
+<li class={className}>
   <Link
     noUnderline
     noHoverEffect
     href={href}
     class="group block hover:outline-4 hover:outline-offset-16 hover:outline-blue-700"
+    ,
+    }
   >
     {
       image ? (
