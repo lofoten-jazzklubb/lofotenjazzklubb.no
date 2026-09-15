@@ -29,12 +29,7 @@ const posts = (await getCollection("blog")).sort(
             image={post.data.heroImage}
           >
             <div slot="meta" class="flex">
-              <div class="flex items-center justify-start gap-1 bg-blue-500 py-2 pr-2 text-white group-hover:text-white md:bg-transparent md:py-3 md:pr-2 md:text-white md:group-hover:bg-blue-500">
-                <Icon
-                  name="circum:calendar-date"
-                  size={32}
-                  class="-translate-y-0.5"
-                />
+              <div class="flex w-full items-center justify-start gap-1 bg-blue-500 px-2 py-2 text-white group-hover:text-white md:bg-transparent md:py-3 md:text-white md:group-hover:bg-blue-500">
                 {/* Short form: a publication date has no time worth showing. */}
                 <Time date={post.data.pubDate} format={formatDate} />
               </div>
