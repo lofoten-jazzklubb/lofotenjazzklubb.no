@@ -1,12 +1,11 @@
 ---
-import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 
+import BlogPostCardSlots from "../../components/BlogPostCardSlots.astro";
 import Card from "../../components/Card.astro";
-import Time from "../../components/Time.astro";
+import Divider from "../../components/Divider.astro";
 import { SITE_DESCRIPTION } from "../../consts";
 import Layout from "../../layouts/Layout.astro";
-import { formatDate } from "../../utils/date";
 
 import "../../styles/global.css";
 
@@ -18,24 +17,43 @@ const posts = (await getCollection("blog")).sort(
 <Layout title="Aktuelt" description={SITE_DESCRIPTION}>
   <section class="space-y-8">
     <h2 class="text-5xl md:text-8xl">Aktuelt</h2>
-    <ul class="grid grid-cols-1 gap-4">
-      {
-        posts.map((post) => (
-          <Card
-            href={`/aktuelt/${post.id}/`}
-            title={post.data.title}
-            image={post.data.heroImage}
-          >
-            <div slot="meta" class="flex">
-              <div class="flex items-center justify-start gap-1 bg-blue-500 px-2 py-2 group-hover:bg-blue-500 group-hover:text-white md:bg-transparent md:px-0">
-                <Time date={post.data.pubDate} format={formatDate} />
-              </div>
-            </div>
 
-            <p>{post.data.description}</p>
-          </Card>
-        ))
-      }
-    </ul>
+    {
+      posts.length > 0 && (
+        <>
+          <ul class="grid grid-cols-1 gap-4 md:gap-8">
+            <Card
+              href={`/aktuelt/${posts[0].id}/`}
+              title={posts[0].data.title}
+              image={posts[0].data.heroImage}
+            >
+              <BlogPostCardSlots post={posts[0]} />
+            </Card>
+          </ul>
+          {posts.length > 1 && <Divider class="mb-5" variant="big-blue" />}
+        </>
+      )
+    }
+
+    {
+      posts.length > 1 && (
+        <ul class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
+          {posts.slice(1).map((post, index) => (
+            <>
+              <Card
+                href={`/aktuelt/${post.id}/`}
+                title={post.data.title}
+                image={post.data.heroImage}
+              >
+                <BlogPostCardSlots post={post} />
+              </Card>
+              {index !== posts.slice(1).length - 1 && (
+                <Divider class="mb-5 md:hidden" variant="big-blue" />
+              )}
+            </>
+          ))}
+        </ul>
+      )
+    }
   </section>
 </Layout>

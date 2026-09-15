@@ -1,0 +1,15 @@
+---
+import Time from "./Time.astro";
+import { formatDate } from "../utils/date";
+
+const { post } = Astro.props;
+---
+
+<>{
+  <div slot="meta" class="flex">
+    <div class="flex items-center justify-start gap-1 bg-blue-500 px-2 py-2 group-hover:bg-blue-500 group-hover:text-white md:bg-transparent md:px-0">
+      <Time date={post.data.pubDate} format={formatDate} />
+    </div>
+  </div>
+  <p>{post.data.description}</p>
+}</>
