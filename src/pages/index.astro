@@ -45,48 +45,46 @@ const futureEvents = allEvents.filter((event) =>
     <section class="space-y-8">
       <h2 class="text-5xl md:text-8xl">Arrangementer</h2>
 
-      {
-        futureEvents.length > 0 && (
-          <>
-            <ul class="grid grid-cols-1 gap-4 md:gap-8">
-              <Card
-                href={`/arrangement/${futureEvents[0].id}/`}
-                title={futureEvents[0].data.title}
-                image={futureEvents[0].data.heroImage}
-              >
-                <EventCardSlots event={futureEvents[0]} />
-              </Card>
-            </ul>
-            {futureEvents.length > 1 && (
-              <Divider class="mb-5" variant="big-blue" />
-            )}
-          </>
-        )
-      }
+      <ul class="grid grid-cols-1 gap-4 md:gap-8">
+        {
+          futureEvents[0] && (
+            <Card
+              href={`/arrangement/${futureEvents[0].id}/`}
+              title={futureEvents[0].data.title}
+              image={futureEvents[0].data.heroImage}
+            >
+              <EventCardSlots event={futureEvents[0]} />
+            </Card>
+          )
+        }
+      </ul>
+
+      {futureEvents[1] && <Divider class="mb-5" variant="big-blue" />}
+
+      <ul class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
+        {
+          futureEvents.map(
+            (event, index) =>
+              index > 0 && (
+                <>
+                  <Card
+                    href={`/arrangement/${event.id}/`}
+                    title={event.data.title}
+                    image={event.data.heroImage}
+                  >
+                    <EventCardSlots event={event} />
+                  </Card>
+                  {index !== futureEvents.length - 1 && (
+                    <Divider class="mb-5 md:hidden" variant="big-blue" />
+                  )}
+                </>
+              ),
+          )
+        }
+      </ul>
 
       {
-        futureEvents.length > 1 && (
-          <ul class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-            {futureEvents.slice(1).map((event, index) => (
-              <>
-                <Card
-                  href={`/arrangement/${event.id}/`}
-                  title={event.data.title}
-                  image={event.data.heroImage}
-                >
-                  <EventCardSlots event={event} />
-                </Card>
-                {index !== futureEvents.slice(1).length - 1 && (
-                  <Divider class="mb-5 md:hidden" variant="big-blue" />
-                )}
-              </>
-            ))}
-          </ul>
-        )
-      }
-
-      {
-        pastEvents.length > 0 && (
+        pastEvents[0] && (
           <>
             <Divider class="mt-32 mb-20" variant="big-blue" />
             <Details label="Tidligere arrangementer">
