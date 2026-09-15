@@ -18,48 +18,19 @@ const posts = (await getCollection("blog")).sort(
   <section class="space-y-8">
     <h2 class="text-5xl md:text-8xl">Aktuelt</h2>
 
-    {
-      posts.map((post, index) =>
-        index === 0 ? (
-          <ul class="grid grid-cols-1 gap-4 md:gap-8">
-            <Card
-              href={`/aktuelt/${post.id}/`}
-              title={post.data.title}
-              image={post.data.heroImage}
-            >
-              <BlogPostCardSlots post={post} />
-            </Card>
-          </ul>
-        ) : index === 1 ? (
-          <Divider class="mb-5" variant="big-blue" />
-        ) : index === 2 ? (
-          <ul class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-            <Card
-              href={`/aktuelt/${post.id}/`}
-              title={post.data.title}
-              image={post.data.heroImage}
-            >
-              <BlogPostCardSlots post={post} />
-            </Card>
-            {index !== posts.length - 1 && (
-              <Divider class="mb-5 md:hidden" variant="big-blue" />
-            )}
-          </ul>
-        ) : (
-          <>
-            <Card
-              href={`/aktuelt/${post.id}/`}
-              title={post.data.title}
-              image={post.data.heroImage}
-            >
-              <BlogPostCardSlots post={post} />
-            </Card>
-            {index !== posts.length - 1 && (
-              <Divider class="mb-5 md:hidden" variant="big-blue" />
-            )}
-          </>
-        ),
-      )
-    }
+    <ul class="grid gap-4 md:grid-cols-2 md:gap-8">
+      {
+        posts.map((post, index) => (
+          <Card
+            href={`/aktuelt/${post.id}/`}
+            title={post.data.title}
+            image={post.data.heroImage}
+            className={index === 0 ? "col-span-2" : ""}
+          >
+            <BlogPostCardSlots post={post} />
+          </Card>
+        ))
+      }
+    </ul>
   </section>
 </Layout>
