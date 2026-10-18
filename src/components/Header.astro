@@ -1,19 +1,27 @@
 ---
 import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
+import Link from "./Link.astro";
 ---
 
 <header class="sticky top-0 z-10 bg-blue-950 px-4 py-4 md:px-16">
   <nav>
-    <div class="flex items-center justify-between">
+    <div class="flex items-center gap-2 md:gap-6">
       <span class="sr-only">{SITE_TITLE}</span>
-      <div
-        class="flex items-center justify-center gap-2 md:justify-end md:gap-6"
-      >
+      <div class="flex items-center gap-2 md:gap-6">
         <HeaderLink href="/">Arrangementer</HeaderLink>
         <HeaderLink href="/aktuelt">Aktuelt</HeaderLink>
         <HeaderLink href="/om">Om</HeaderLink>
       </div>
+      <Link
+        noUnderline
+        noHoverEffect
+        href="https://qr.vipps.no/vp/jDn_W6uaM"
+        external
+        class="ml-auto rounded-full bg-blue-500 px-4 py-1 text-white transition-colors hover:bg-blue-400 md:px-5 md:text-xl"
+      >
+        Bli medlem
+      </Link>
     </div>
   </nav>
 </header>
