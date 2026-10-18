@@ -110,7 +110,6 @@ content:
         label: Innhold
         type: rich-text
         options:
-          format: markdown
           media: images
           path: src/assets/images/blog
           extensions: [png, jpg, jpeg, webp, svg, gif, avif]
