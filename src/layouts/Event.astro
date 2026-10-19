@@ -5,6 +5,7 @@ import type { CollectionEntry } from "astro:content";
 
 import Authors from "../components/Authors.astro";
 import Divider from "../components/Divider.astro";
+import Link from "../components/Link.astro";
 import PublishDate from "../components/PublishDate.astro";
 import Time from "../components/Time.astro";
 import Typewriter from "../components/Typewriter.astro";
@@ -24,6 +25,7 @@ const {
   startDate,
   endDate,
   venue,
+  ticketUrl,
   heroImage,
   authors,
 } = Astro.props;
@@ -90,9 +92,24 @@ const eventSchema = {
         <span class="flex items-center text-lg md:text-xl">{venue}</span>
       </div>
       <Divider variant="small-gray" />
-      <div class="space-y-1">
-        <Authors authors={authors} size="sm" />
-        <PublishDate pubDate={pubDate} updatedDate={updatedDate} />
+      <div class="flex items-center justify-between gap-4">
+        <div class="space-y-1">
+          <Authors authors={authors} size="sm" />
+          <PublishDate pubDate={pubDate} updatedDate={updatedDate} />
+        </div>
+        {
+          ticketUrl && (
+            <Link
+              noUnderline
+              noHoverEffect
+              href={ticketUrl}
+              external
+              class="inline-block rounded-full bg-blue-500 px-6 py-2 text-xl text-white hover:bg-blue-400"
+            >
+              Kjøp billett
+            </Link>
+          )
+        }
       </div>
       <Divider variant="big-blue" />
     </div>

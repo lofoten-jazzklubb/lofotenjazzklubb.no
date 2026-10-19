@@ -40,6 +40,7 @@ const event = defineCollection({
       startDate: z.coerce.date(),
       endDate: z.coerce.date().optional(),
       venue: z.string(),
+      ticketUrl: z.string().url().optional(),
       heroImage: z.optional(image()),
       authors: z.array(z.string()).optional(),
     }),

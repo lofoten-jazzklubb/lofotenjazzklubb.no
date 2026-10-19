@@ -159,6 +159,10 @@ content:
         required: true
         options:
           suggestions: [Arbeidern, Nordis, Trevarefabrikken, Kulturhuset, TBA]
+      - name: ticketUrl
+        label: Billettlenke
+        type: string
+        description: "Lenke til billettsalg. Vises som en 'Kjøp billett'-knapp på arrangementssiden."
       - name: pubDate
         label: Publiseringsdato
         type: date
